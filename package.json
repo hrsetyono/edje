@@ -8,6 +8,6 @@
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "sass": "node-sass -w sass -o css --output-style compact"
+    "sass": "node-sass -w sass -o css --output-style compressed"
   }
 }
