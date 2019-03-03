@@ -1,0 +1,47 @@
+$output-framework: true;
+@import "../sass/edje"
+
+=highlight
+  display: block
+  padding: 0.25em 0.5em
+  background-color: rgba(black, .1)
+
+.grid-demo
+  +h( mv3 )
+
+  h2
+    +h( mt2 mb1 mh-auto )
+    max-width: $grid-max-width
+
+  h-grid
+    grid-row-gap: 10px
+
+  div
+    +h( mv05 b1-solid bc-black25 bg-black10  ta-center brad )
+
+  div:nth-child(even)
+    +h( bg-black25 )
+
+
+.tile-demo
+  li
+    +h( mb1 )
+
+  span
+    +highlight
+
+  .custom-tile
+    +tile(4, 3, 2)
+
+
+.visibility-demo
+  +h( pv2 )
+
+  p
+    +h( mb1 )
+
+  p, span
+    +highlight
+
+  span
+    +h( d-iblock )

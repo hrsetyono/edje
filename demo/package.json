@@ -1,0 +1,13 @@
+{
+  "name": "edje-demo",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrsetyono/edje.git"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "sass": "node-sass -w . -o . --output-style compact"
+  }
+}

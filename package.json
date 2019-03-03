@@ -1,0 +1,13 @@
+{
+  "name": "my-website",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/my-website.git"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "sass": "node-sass -w sass -o css --output-style compact"
+  }
+}
