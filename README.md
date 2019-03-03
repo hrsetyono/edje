@@ -52,12 +52,12 @@ Some benefits based on our experiences are:
 
 - **Fun**. Yeah I know this is subjective. But if you enjoy writing CSS with Emmet, you are going to like this framework.
 
-- **Instant Styleguide** - All customizable variables are stored in **_edje.scss**, that automatically become a styleguide to your team.
+- **Instant Styleguide** - All customizable variables are stored in **_settings.scss**, that automatically become a styleguide to your team.
 
 
 ## How to Use Edje?
 
-1. Copy (1) `sass/_edje.scss`, (2) `sass/edje` directory, and (3) `sass/framework.sass`. Organize them to fit your project structure.
+1. Copy (1) `sass/_settings.scss`, (2) `sass/edje/` directory, and (3) `sass/edje.sass`. Organize them to fit your project structure.
 1. Add `@import "edje"` at the top of the Sass files where you want to use Edje.
 1. Compile them. Done!
 
@@ -65,7 +65,7 @@ First time working with Sass? Here's a [short guide](#how-to-compile-sass) on ho
 
 Also this whole repository can actually be used as a simple boilerplate. Just delete `/demo` directory.
 
-**Note**: If you want to use other framework like Bootstrap, no need to copy `sass/framework.sass` because that contains our Normalizer and Grid System.
+**Note**: If you want to use other framework like Bootstrap, no need to copy `sass/edje.sass` because that contains our Normalizer and Grid System.
 
 -----
 
@@ -111,7 +111,7 @@ We don't like using mixin for media query, instead we use variable within `@medi
     +h( p15 )
 ```
 
-Those variables are defined in **_edje.scss**. Let me explain what those mean.
+Those variables are defined in **_settings.scss**. Let me explain what those mean.
 
 First thing first, there are 4 default breakpoints in Edje:
 
