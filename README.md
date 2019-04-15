@@ -15,6 +15,7 @@
 **USEFUL LINKS**
 
 - [Full Documentation](https://hrsetyono.github.io/edje/)
+- [Edje Wordpress Starter Theme](https://github.com/hrsetyono/edje-wp-theme)
 
 ## What is Edje?
 

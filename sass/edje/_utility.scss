@@ -1,7 +1,7 @@
-
 // ----------------
 // Functional Sass
 //-----------------
+
 
 // Apply styling with given classes
 //
@@ -257,7 +257,7 @@ $_media-sizes: (
   $index: str-index($string, $search);
 
   @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    @return str-slice($string, 1, $index - 1) + $replace + _str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
   }
 
   @return $string;
@@ -330,3 +330,34 @@ $_media-sizes: (
     border-top-color: $color;
   }
 }
+
+// ------------
+// PLACEHOLDER
+// ------------
+
+@mixin placeholder($base: false) {
+  @if $base {
+    ::-webkit-input-placeholder { @content; }
+    ::-moz-placeholder { @content; }
+    :-ms-input-placeholder { @content; }
+    :-moz-placeholder { @content; }
+  } @else {
+    &::-webkit-input-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &:-moz-placeholder { @content; }
+  }
+}
+
+// -----------
+// ASSET URL
+// -----------
+
+@function font-url( $file ) {
+  @return url( $image_url + $file);
+}
+
+@function image-url( $file ) {
+  @return url( $font_url + $file);
+}
+

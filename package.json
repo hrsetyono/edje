@@ -1,13 +1,14 @@
 {
-  "name": "my-website",
-  "private": true,
+  "name": "edje",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/username/my-website.git"
+    "url": "git+https://github.com/hrsetyono/edje.git"
   },
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "sass": "node-sass -w sass -o css --output-style compressed"
+    "sass": "node-sass -w sass -o css --output-style compact",
+    "browser-sync": "browser-sync start --server --files \"css/*.css\" \"js/*.js\""
   }
 }
