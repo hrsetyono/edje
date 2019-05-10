@@ -1,18 +1,17 @@
-(function($) {
-'use strict';
+(function() { 'use strict';
+if( window.jQuery ) { $ = jQuery; }
 
-$(document).ready(start);
-$(document).on('page:load', start);
-$(window).load(startOnLoad);
+document.addEventListener( 'DOMContentLoaded', onReady );
+window.addEventListener( 'load', onLoad );
 
-function start() {
+function onReady() {
   myApp.init();
+  myNav.init();
 }
 
-// functions that needs to run only after everything loads
-function startOnLoad() {
+function onLoad() {
+  // script that runs when everything is loaded
 }
-
 
 
 ///// GENERAL LISTENERS
@@ -30,6 +29,5 @@ var myApp = {
 
 
 // Browser compatibility, leave this untouched
-if('registerElement' in document) { document.createElement( 'h-grid' ); }
-
-})( jQuery );
+if('registerElement' in document) { document.createElement( 'h-grid' ); document.createElement( 'h-tile' ); }
+})();

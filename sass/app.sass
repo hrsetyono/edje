@@ -1,6 +1,12 @@
 @import "settings"
-// @import "edje/hh" // experimental - read more https://github.com/hrsetyono/edje/wiki/Dynamic-Functional-Sass
 
 .example
-  +h( p1 mb15 b1-solid bc-main bg-main10 )
-  // +hh( p1  mb1_5  b1px/solid/--main  bgc--main_10  c--red )
+  +h( p1 mb1_5 b1-solid bc-main bg-main_10 )
+
+  // Result:
+  
+  // padding: 1rem
+  // margin-bottom: 1.5rem
+  // border: 1px solid
+  // border-color: var(--main)
+  // background-color: rgba(var(--mainRGB), 0.10)

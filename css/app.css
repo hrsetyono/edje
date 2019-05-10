@@ -1,1 +1,1 @@
-.example { padding: 1rem; margin-bottom: 1.5rem; border: 1px solid; border-color: #2196f3; background-color: rgba(33, 150, 243, 0.1); }
+.example { padding: 1rem; margin-bottom: 1.5rem; border: 1px solid; border-color: var(--main); background-color: rgba(var(--mainRGB), 0.10); }

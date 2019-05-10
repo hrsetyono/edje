@@ -1,5 +1,14 @@
+$include-normalize: false !default;
+$include-grid: false !default;
+$include-tile: false !default;
+$include-typography: false !default;
+$include-visibility: false !default;
+$include-colors: false !default;
+$output-framework: false !default;
+
+
 @if $output-framework {
-  /* EDJE Framework 2.4 - hrsetyono.github.io/edje */
+  /* EDJE Framework 3.0 - hrsetyono.github.io/edje */
 }
 
 // ------------
@@ -553,6 +562,21 @@ ol {
   
   } // include-visibility
 
+
+// ------------
+// ROOT COLORS
+// ------------
+
+@if $output-framework and $include-colors {
+  :root {
+    @each $name, $value in $h-colors {
+      --#{ $name }: #{ $value };
+      --#{ $name }RGB: #{ round(red($value)) }, #{ round(green($value)) }, #{ round(blue($value)) };
+    }
+  }
+}
+
+// Separator
 
 @if $output-framework {
   /* ----- */

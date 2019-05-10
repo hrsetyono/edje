@@ -1,10 +1,7 @@
-$output-framework: true;
 @import "../sass/settings"
 
 =highlight
-  display: block
-  padding: 0.25em 0.5em
-  background-color: rgba(black, .1)
+  +h( d-block pv0_25 ph0_5 bg-black_10 )
 
 .grid-demo
   +h( mv3 lh1 )
@@ -14,13 +11,14 @@ $output-framework: true;
     max-width: $grid-max-width
 
   h-grid
-    grid-row-gap: 10px
+    grid-row-gap: $grid-gap
 
   div
-    +h( mv05 b1-solid bc-black25 bg-black10  ta-center brad )
+    +highlight
+    +h( ta-center brad )
 
   div:nth-child(even)
-    +h( bg-black25 )
+    +h( bg-black_25 )
 
 
 .tile-demo
