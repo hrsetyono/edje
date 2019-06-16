@@ -1,10 +1,41 @@
 # Edje Framework
 
+Edje is a faster way to write SCSS by using shorthand syntaxes.
+
+For example, we have a normal CSS below:
+
+```css
+.page-thumbnail {
+  display: flex;
+  background-color: red;
+  border: 2px solid black;
+  padding: 1.5rem;
+  color: white;
+}
+```
+
+With **Edje framework**, we can convert it like this:
+
+```scss
+// SCSS
+.page-thumbnail {
+  @include h( d-flex  bg-red  p1_5  c-white );
+}
+
+// or use Sass syntax (recommended)
+.page-thumbnail
+  +h( d-flex  bg-red  p1_5  c-white )
+```
+
+If you have used Emmet in your text-editor, you will feel at home.
+
+-----
+
 **TABLE OF CONTENTS**
 
-- [What is Edje?](#what-is-edje)
 - [Why use Edje](#why-use-edje)
 - [How to use Edje?](#how-to-use-edje)
+- [Where to Learn more about Edje?](#where-to-learn-more-about-edje)
 - [Other Features](#other-features)
     1. [Grid System](#grid-system)
     1. [Media Query](#media-query)
@@ -12,61 +43,42 @@
 - [How to Compile Sass](#how-to-compile-sass)
 - [Credit](#credit)
 
-**USEFUL LINKS**
-
-- [Full Documentation](https://hrsetyono.github.io/edje/)
-- [Edje Wordpress Starter Theme](https://github.com/hrsetyono/edje-wp-theme)
-
-## What is Edje?
-
-Edje is a **Functional Sass framework**. Basically we provide many shorthand styles, so instead of writing `padding: 1em`, we just write `p1`.
-
-Let's take a look at how we write CSS normally:
-
-```css
-.page-thumbnail {
-  background-color: red;
-  border: 2px solid black;
-  padding: 1em;
-  color: white;
-}
-```
-
-Using **Edje framework**, we will write it like this:
-
-```scss
-// Sass syntax
-.page-thumbnail
-  +h( bg-red  b2-solid  b-black  p1  c-white )
-
-// or with SCSS syntax
-.page-thumbnail {
-  @include h( bg-red  b2  b-black50  p1  c-white );
-}
-```
 
 ## Why use Edje?
 
-Some benefits based on our experiences are:
+- **Compact Codebase** - Easier to skim through.
 
-- **Compact Codebase** - Easier to skim through the code.
+- **Act as Styleguide** - Easier to limit what colors and values your team can use.
 
-- **Fun**. Yeah I know this is subjective. But if you enjoy writing CSS with Emmet, you are going to like this framework.
+- **Flexible** - Unlike Functional CSS, we can still write normal CSS, pseudo-selector, and media query.
 
-- **Instant Styleguide** - All customizable variables are stored in **_settings.scss**, that automatically become a styleguide to your team.
+- **Fun**. Yeah I know this is subjective. But if you enjoy writing CSS with Emmet, you are going to love this framework.
 
 
 ## How to Use Edje?
 
-1. Copy (1) `sass/_settings.scss`, (2) `sass/edje/` directory, and (3) `sass/edje.sass`. Organize them to fit your project structure.
-1. Add `@import "edje"` at the top of the Sass files where you want to use Edje.
-1. Compile them. Done!
+**One-time setup:**
 
-First time working with Sass? Here's a [short guide](#how-to-compile-sass) on how to compile them.
+1. Install Node JS.
+1. Open command prompt and install Sass compiler by running: `npm install -g node-sass`.
 
-Also this whole repository can actually be used as a simple boilerplate. Just delete `/demo` directory.
+**For play-testing:**
 
-**Note**: If you want to use other framework like Bootstrap, no need to copy `sass/edje.sass` because that contains our Normalizer and Grid System.
+1. Clone this repository.
+1. Open command prompt in this folder and type `npm run sass`. It will compile the Sass files whenever there's changes.
+1. Open `sass/app.sass` and try changing it. Check `css/app.css` for the result.
+
+**For use in existing project:**
+
+1. Clone this repository.
+1. Copy the whole `/sass` folder into your project.
+1. If you want to use the `h` mixin in your existing Sass file, simply add `@import "settings";` at the top.
+
+
+## Where to Learn more about Edje?
+
+- [Full Documentation](https://hrsetyono.github.io/edje/)
+- [Our WordPress theme](https://github.com/hrsetyono/edje-wp-theme) - You can take a look at `assets/sass` folder as an example.
 
 -----
 
@@ -93,7 +105,7 @@ Small column size is applied when the screen is below 767px (customizable in var
 
 Result:
 
-![Edje Grid Sample](https://cdn.setyono.net/edge/grid-large-small.jpg)
+![Edje Grid Sample](https://raw.github.com/hrsetyono/cdn/master/edje/grid-large-small.jpg)
 
 -----
 
@@ -135,7 +147,7 @@ Same thing goes to `$above-m` which translated to `min-width: 961px`. For "$abov
 You might recognize Edje's concept from Functional CSS framework such as [Tachyon](https://tachyons.io/). They write the shorthand syntax as HTML class like this:
 
 ```html
-<div class="bg-red b2 b-black50 p1 c-white">
+<div class="bg-red b2 b-black_50 p1 c-white">
   ...
 </div>
 ```

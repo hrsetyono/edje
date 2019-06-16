@@ -17,8 +17,6 @@ $green : #4caf50;
 $green-light: #c8e6c9;
 $blue: #1976d2;
 $blue-light: #bbdefb;
-$indigo: #303f9f;
-$indigo-light: #c5cae9;
 
 $gray : #b0bec5;
 $gray-light: #eceff1;
@@ -29,13 +27,14 @@ $main : $blue;
 $main-dark : darken($main, 20%);
 $main-light : $blue-light;
 
-$sub: $indigo;
-$sub-dark: darken($sub, 15%);
-$sub-light: $indigo-light;
+$sub: $gray;
+$sub-dark: $gray-dark;
+$sub-light: $gray-light;
 
 $body-background: #fff;
 
-// Media Query
+///// MEDIA QUERY
+
 $size-xs : 480px;
 $size-s  : 767px;
 $size-m  : 960px;
@@ -57,14 +56,13 @@ $portrait: "orientation: portrait";
 $landscape: "orientation: landscape";
 $retina: "min-resolution: 192dpi";
 
-// Typography
+///// TYPOGRAPHY
+
 $font-family : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-
 $font-family-header : "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times","Source Serif Pro", serif;
-
 $font-family-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 
-// Put file in /assets/fonts directory
+// Automatically generate @font-face. Put font files in /assets/fonts
 $font-faces: (
   // "Open Sans": (
   //   ( "opensans.woff", 400 ),
@@ -82,7 +80,7 @@ $font-size : 16px;
 $color-link : inherit;
 $color-link-hover : inherit;
 
-// Typography - Header
+// HEADER
 $header-color   : $font-color;
 $header-weight  : 700;
 $header-line    : 1.25;
@@ -96,27 +94,33 @@ $h4: (base: 24px, s: 20px);
 $h5: (base: 20px, s: 18px);
 $h6: (base: $font-size, s: $font-size);
 
-// Typography List
+// LIST
 $ul-parent : disc;
 $ul-child  : circle;
 $ol-parent : decimal;
 $ol-child  : lower-alpha;
 
-// Grid
+
+///// GRID
+
 $grid-columns : 12;
 $grid-gap     : 20px;
 $grid-rim     : 16px;
 $grid-max-width : $size-l;
 
+$content-width: 650px;
+
 // Tile
 $tile-max : 8;
 $tile-gap : 20px;
 
-// Shadow
+///// OTHER
+
 $shadow-z0: 0 0.5px 2px rgba(black, .18), 0 1.5px 6px rgba(black, .08);
 $shadow-z1: 0 1.5px 4px rgba(black, .24), 0 1.5px 6px rgba(black, .12);
 $shadow-z2: 0 3px 12px rgba(black, .23), 0 3px 12px rgba(black, .16);
 $shadow-z3: 0 6px 12px rgba(black, .23), 0 10px 40px rgba(black, .19);
+
 
 // Other
 $g-radius : 4px;

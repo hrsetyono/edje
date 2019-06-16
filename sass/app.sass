@@ -1,12 +1,27 @@
+$include-colors: true
+$output-framework: true
 @import "settings"
 
 .example
   +h( p1 mb1_5 b1-solid bc-main bg-main_10 )
 
-  // Result:
-  
-  // padding: 1rem
-  // margin-bottom: 1.5rem
-  // border: 1px solid
-  // border-color: var(--main)
-  // background-color: rgba(var(--mainRGB), 0.10)
+  @media ($below-s)
+    +h( p0_5 )
+
+  /*
+  Compiled result:
+
+  .example {  
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid;
+    border-color: var(--main);
+    background-color: rgba(var(--mainRGB), 0.10);
+  }
+
+  @media (max-width:767px) {
+    .example {
+      padding: 0.5rem;
+    }
+  }
+  */
