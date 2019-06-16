@@ -118,10 +118,10 @@ We don't like using mixin for media query, instead we use variable within `@medi
   +h( p1 )
 
   @media ($below-s)
-    +h( p05 )
+    +h( p0_5 )
 
   @media ($above-m) and ($portrait)
-    +h( p15 )
+    +h( p1_5 )
 ```
 
 Those variables are defined in **_settings.scss**. Let me explain what those mean.
@@ -147,49 +147,29 @@ Same thing goes to `$above-m` which translated to `min-width: 961px`. For "$abov
 You might recognize Edje's concept from Functional CSS framework such as [Tachyon](https://tachyons.io/). They write the shorthand syntax as HTML class like this:
 
 ```html
-<div class="bg-red b2 b-black_50 p1 c-white">
+<div class="d-flex  bg-red  p1_5  c-white">
   ...
 </div>
 ```
 
-It felt weird when I first saw that, but [this article](https://www.mikecr.it/ramblings/functional-css/) convinced me to give it a try. The idea is not having to write CSS and no need to think about class name.
+It felt weird when I first saw that, but [this article](https://www.mikecr.it/ramblings/functional-css/) convinced me to give it a try.
 
-But in practice, I still need to write CSS for Hover effect, Pseudoselector, Media query, and other advanced CSS like animation. **I ended up going back and forth between my HTML and CSS** which gets messy.
+I ended up loving it! But it feels very limited. I can't add Hover effect, Pseudoselector, and complex style like `animation` or `transform`.
 
-Edje framework solves that.
-
-If you need Hover effect, Pseudoselector, or Media Query:
+Edje framework solves that. You are free to add pseudoselector and normal CSS like below:
 
 ```scss
 .button
-  +h( bg-red p1 c-white )
-
-  &:hover
-    +h( bg-blue )
-
-  @media ($below-s)
-    +h( p05 ) // padding: 0.5rem
-```
-
-If you need advanced CSS, simply write it old-fashioned way:
-
-```scss
-.button
-  +h( bg-red p1 c-white )
-
+  +h( bg-yellow )
   animation: 1s fadeInUp both
   transform: rotate(5deg)
+
+  &:hover
+    +h( bg-yellow-light )
+
+  @media ($below-s)
+    +h( p0_5 ) // padding: 0.5rem
 ```
-
-----
-
-## How to Compile Sass
-
-1. Install [Node JS](https://nodejs.org/en/download/).
-
-1. Open CMD (or Terminal if you're using Mac) and run the command `npm install -g node-sass`.
-
-1. Open CMD inside your project directory and run the command `npm run sass`. That command is a shortcut we defined in **package.json**.
 
 ### Credit
 
