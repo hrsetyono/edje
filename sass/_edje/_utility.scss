@@ -39,6 +39,58 @@ $_media-sizes: (
 }
 
 
+// -------
+// COLOR
+// -------
+
+
+// Add transparency
+@function h-rgba( $name, $alpha ) {
+  $key: str-replace( $name, '--', '' );
+  $has-color: map-has-key( $h-colors, quote($key) );
+
+  @if $has-color {
+    @return rgba( var(#{ $name }RGB), $alpha );
+  }
+  @else {
+    @warn "Color `#{ $name }` not found in $h-colors.";
+  }
+}
+
+// Darken a color by percentage
+@function h-darken( $name, $percentage ) {
+  $color: _get-hcolor-hex-value( $name );
+  @return darken( $color, $percentage );
+}
+
+// Lighten a color by percentage
+@function h-lighten( $name, $percentage ) {
+  $color: _get-hcolor-hex-value( $name );
+  @return lighten( $color, $percentage );
+}
+
+
+
+// Get the hex value from $h-colors
+@function _get-hcolor-hex-value( $name ) {
+  $key: _str-replace( $name, '--', '' );
+  $color: map-get( $h-colors, $key );
+
+  $count: 0;
+  // if the color is var(), repeat until it found a Hex value. Max 2 times
+  @while $count <= 2 AND str-slice( quote($color), 1,3 ) == 'var' {
+    $var_name: _str-replace( quote($color), 'var(--', '' );
+    $var_name: _str-replace( $var_name, ')', '' );
+    $color: map-get( $h-colors, $var_name );
+
+    $count: $count + 1;
+  }
+  
+  @return $color;
+}
+
+
+
 // -------------
 // EM CONVERTER
 // -------------
@@ -137,6 +189,11 @@ $_media-sizes: (
   }
 
   @return url("data:image/svg+xml;charset=utf8,#{$encoded}");
+}
+
+// alias
+@function svg( $svg_raw ) {
+  @return svg-encode( $svg_raw );
 }
 
 /// Replace `$search` with `$replace` in `$string`

@@ -6,6 +6,7 @@ $include-grid: true
 $include-tile: true
 $include-typography: true
 $include-visibility: true
+$include-colors: true
 
 $output-framework: true
 @import "settings"
@@ -67,7 +68,7 @@ select
     +h( bc-main )
   &:checked
     +h( bc-main )
-    box-shadow: inset 0 0 0 4.5px $main
+    box-shadow: inset 0 0 0 4.5px var(--main)
 
 [type="checkbox"]
   +h( brad )

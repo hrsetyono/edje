@@ -1,1 +1,7 @@
+/*!
+  EDJE Functional Sass v3.1.0
+  Documentation: https://github.com/hrsetyono/edje/wiki
+*/
 .example { padding: 1rem; margin-bottom: 1.5rem; border: 1px solid; border-color: var(--main); background-color: rgba(var(--mainRGB), 0.10); }
+
+@media (max-width: 767px) { .example { padding: 0.5rem; } }

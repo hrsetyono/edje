@@ -1,6 +1,6 @@
 # Edje Framework
 
-Edje is a faster way to write SCSS by using shorthand syntaxes.
+Edje is a faster way to write Sass by using shorthand syntaxes.
 
 For example, we have a normal CSS below:
 
@@ -19,27 +19,24 @@ With **Edje framework**, we can convert it like this:
 ```scss
 // SCSS
 .page-thumbnail {
-  @include h( d-flex  bg-red  p1_5  c-white );
+  @include h( d-flex  bg-red  b2-solid bc-black  p1_5  c-white );
 }
 
 // or use Sass syntax (recommended)
 .page-thumbnail
-  +h( d-flex  bg-red  p1_5  c-white )
+  +h( d-flex  bg-red b2-solid bc-black  p1_5  c-white )
 ```
-
-If you have used Emmet in your text-editor, you will feel at home.
 
 -----
 
 **TABLE OF CONTENTS**
 
-- [Why use Edje](#why-use-edje)
+- [Wiki / Full Documentation](https://github.com/hrsetyono/edje/wiki)
+- [Why use Edje?](#why-use-edje)
 - [How to use Edje?](#how-to-use-edje)
-- [Where to Learn more about Edje?](#where-to-learn-more-about-edje)
 - [Other Features](#other-features)
     1. [Grid System](#grid-system)
     1. [Media Query](#media-query)
-- [What is the Difference with Functional CSS](what-is-the-difference-with-functional-css)
 - [How to Compile Sass](#how-to-compile-sass)
 - [Credit](#credit)
 
@@ -52,7 +49,7 @@ If you have used Emmet in your text-editor, you will feel at home.
 
 - **Flexible** - Unlike Functional CSS, we can still write normal CSS, pseudo-selector, and media query.
 
-- **Fun**. Yeah I know this is subjective. But if you enjoy writing CSS with Emmet, you are going to love this framework.
+- **Fun**. Yeah I know this is subjective. But give it a try and you will understand how fresh this framework is.
 
 
 ## How to Use Edje?
@@ -75,22 +72,15 @@ If you have used Emmet in your text-editor, you will feel at home.
 1. If you want to use the `h` mixin in your existing Sass file, simply add `@import "settings";` at the top.
 
 
-## Where to Learn more about Edje?
-
-- [Full Documentation](https://hrsetyono.github.io/edje/)
-- [Our WordPress theme](https://github.com/hrsetyono/edje-wp-theme) - You can take a look at `assets/sass` folder as an example.
-
------
-
 # Other Features
 
 ## 1. Grid System
 
-We use the new CSS3 Grid. It is divided into 12 columns and you can define the portion using the class `large-x` and `small-x`.
+We used the new CSS3 Grid for our grid system. It is divided into 12 columns just like most libraries out there.
 
-Small column size is applied when the screen is below 767px (customizable in variable `$size-s`).
+The wrapper uses custom element `<h-grid>` and the column size defined using the class `large-[num]` and `small-[num]` (Small column is applied when the screen is below 767px).
 
-[Read more about our Grid System](https://hrsetyono.github.io/edje/#/helper/grid)
+**EXAMPLE**
 
 ```html
 <h-grid>
@@ -107,11 +97,22 @@ Result:
 
 ![Edje Grid Sample](https://raw.github.com/hrsetyono/cdn/master/edje/grid-large-small.jpg)
 
+[Read more about our Grid System](https://hrsetyono.github.io/edje/#/helper/grid)
+
 -----
 
 ## 2. Media Query
 
-We don't like using mixin for media query, instead we use variable within `@media` block like this:
+There are 4 breakpoints in Edje:
+
+| Name | Description | Default Size |
+| -----|-------|-------|
+| `xs` | Extra Small (Mobile) | 480px |
+| `s` | Small | 767px |
+| `m` | Medium | 960px |
+| `l` | Large | 1120px |
+
+We have prepared variables named `$below-[size]` and `$above-[size]` for use in `@media` block like this:
 
 ```scss
 .button
@@ -124,51 +125,39 @@ We don't like using mixin for media query, instead we use variable within `@medi
     +h( p1_5 )
 ```
 
-Those variables are defined in **_settings.scss**. Let me explain what those mean.
-
-First thing first, there are 4 default breakpoints in Edje:
-
-- XS (extra xmall) is 480px
-- S (small) is 767px
-- M (medium) is 960px
-- and L (large) is 1120px.
-
-So the variable `$below-s` means when the screen is below 767px or translated to `max-width: 767px`.
-
-Same thing goes to `$above-m` which translated to `min-width: 961px`. For "$above", we add 1px to the breakpoint so it won't clash with "$below".
-
-[Read Media Query documentation here](https://hrsetyono.github.io/edje/#/helper/media-query)
+- `$below-s` translates to `(max-width:767px)`.
+- `$above-m` translates to `(min-width:961px)`. We added 1px so it doesn't clash with `$below-m`.
+- `$portrait` translates to `orientation: portrait`. We have the variable `$landscape` too!
 
 
------
+## 3. Utility Mixins
 
-## What is the Difference with Functional CSS?
-
-You might recognize Edje's concept from Functional CSS framework such as [Tachyon](https://tachyons.io/). They write the shorthand syntax as HTML class like this:
-
-```html
-<div class="d-flex  bg-red  p1_5  c-white">
-  ...
-</div>
-```
-
-It felt weird when I first saw that, but [this article](https://www.mikecr.it/ramblings/functional-css/) convinced me to give it a try.
-
-I ended up loving it! But it feels very limited. I can't add Hover effect, Pseudoselector, and complex style like `animation` or `transform`.
-
-Edje framework solves that. You are free to add pseudoselector and normal CSS like below:
+**CLEARFIX**
 
 ```scss
-.button
-  +h( bg-yellow )
-  animation: 1s fadeInUp both
-  transform: rotate(5deg)
+.my-wrapper
+  +clearfix()
 
-  &:hover
-    +h( bg-yellow-light )
 
-  @media ($below-s)
-    +h( p0_5 ) // padding: 0.5rem
+// Compiled
+
+.my-wrapper::before,
+.my-wrapper::after {
+  content: "";
+  display: table;
+}
+
+.my-wrapper::after {
+  clear: both;
+}
+```
+
+**INPUT PLACEHOLDER**
+
+```scss
+input[type="text"]
+  +placeholder
+    
 ```
 
 ### Credit
