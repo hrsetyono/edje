@@ -160,6 +160,22 @@ input[type="text"]
     
 ```
 
+## Used In
+
+Here are some websites that use this CSS framework:
+
+- [WordPress Tips - Advanced Tutorial](https://wptips.dev)
+- [Angela Chung - Fashion Designer](https://angela-chung.com)
+- [Briliant Glass - Glassware Factory](https://briliant.glass)
+- [Fitnation - Premium Gym](https://fitnation.co.id)
+- [Istana Mie - Restaurant Franchise](https://istanamie.com)
+- [LTL School - Learn Mandarin in China](https://ltl-school.com)
+- [GES13 - Refrigeration Distributor](https://ges13.com)
+- [Paritama - Garden Architecture](https://paritama.com)
+- [Pandarin - Mandarin Learning Center](https://pandarin.net)
+- [Pixel Studio - Web Designer](https://pixelstudio.id)
+- [Premiera Skincare](https://premieraskincare.com/)
+
 ### Credit
 
 - [Mike CR](https://www.mikecr.it/ramblings/functional-css/) for convincing me to give Functional CSS a try which turned into this framework.
